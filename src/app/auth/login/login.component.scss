@@ -1,33 +1,76 @@
-.wrapper {
-  min-height: 100vh;
-  padding: 1rem;
+:host {
   display: grid;
-  place-content: center;
+  min-height: 100vh;
+  place-content: center stretch;
+  padding: 1rem;
+  background: url(../../../assets/images/login-hero.jpg) no-repeat center
+    center/cover;
+  @media (min-width: 768px) {
+    background: none;
+    place-content: center;
+  }
 }
 
-.logo {
+.wrapper {
+  border-radius: 1rem;
   display: grid;
-  place-content: center;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+  overflow: hidden;
+  background: white;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
 }
 
 .form-content-wrapper {
-  padding: 1rem 2rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: stretch;
-  gap: 0.5rem;
+  padding: 2rem;
+  align-self: center;
+}
+
+.hero-image {
+  object-fit: cover;
+  display: none;
+
+  @media (min-width: 768px) {
+    display: block;
+  }
+}
+
+.form-header {
+  margin-bottom: 3rem;
+  text-align: center;
+  color: var(--accent);
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.form-control-icon {
+  padding-left: 1rem;
+  color: gray;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  place-items: center;
 }
 
 .error {
   display: block;
+  align-self: start;
 }
 
 .form {
-  min-width: 350px;
   display: flex;
   flex-direction: column;
 }
 
 .btn-submit {
+  margin-top: 1.5rem;
   padding-block: 1.5rem !important;
+  font-size: 16px;
+}
+
+.btn-submit:disabled {
+  background-color: lighten($color: #433bff, $amount: 10);
+  color: white;
 }

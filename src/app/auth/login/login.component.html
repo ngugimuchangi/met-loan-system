@@ -1,30 +1,53 @@
-<div class="wrapper">
-  <mat-card>
-    <div class="logo">
-      <h1>Company Logo</h1>
-    </div>
-    <div class="form-content-wrapper">
+<div class="wrapper mat-elevation-z2">
+  <!-- Hero image-->
+  <img
+    class="hero-image"
+    src="assets/images/login-hero.jpg"
+    alt="Image of plant sprouting"
+    width="400"
+    height="500"
+  />
+
+  <!-- Login form content -->
+  <div class="form-content-wrapper">
+    <h1 class="form-header">Login</h1>
+    <form class="form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <mat-form-field [appearance]="'outline'">
+        <div class="form-control-icon" matPrefix>
+          <mat-icon>email</mat-icon>
+          |
+        </div>
+        <mat-label>Email</mat-label>
+        <input
+          matInput
+          placeholder="Enter your email"
+          type="email"
+          formControlName="email"
+        />
+      </mat-form-field>
+      <mat-form-field [appearance]="'outline'">
+        <div class="form-control-icon" matPrefix>
+          <mat-icon>lock</mat-icon> |
+        </div>
+        <mat-label>Password</mat-label>
+        <input
+          matInput
+          placeholder="Enter your password"
+          type="password"
+          formControlName="password"
+        />
+      </mat-form-field>
       <small class="error" *ngIf="isInvalidCredentials">
         Invalid email or password
       </small>
-      <form class="form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-        <mat-form-field [appearance]="'outline'">
-          <mat-label>Email</mat-label>
-          <input
-            matInput
-            placeholder="Email"
-            type="email"
-            formControlName="email"
-          />
-        </mat-form-field>
-        <mat-form-field [appearance]="'outline'">
-          <mat-label>Password</mat-label>
-          <input matInput placeholder="Password" formControlName="password" />
-        </mat-form-field>
-        <button class="btn-submit" mat-raised-button color="primary">
-          Login
-        </button>
-      </form>
-    </div>
-  </mat-card>
+      <button
+        class="btn-submit"
+        mat-raised-button
+        color="primary"
+        [disabled]="!loginForm.valid"
+      >
+        Login
+      </button>
+    </form>
+  </div>
 </div>
