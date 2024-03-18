@@ -1,0 +1,30 @@
+<div class="wrapper">
+  <mat-card>
+    <div class="logo">
+      <h1>Company Logo</h1>
+    </div>
+    <div class="form-content-wrapper">
+      <small class="error" *ngIf="isInvalidCredentials">
+        Invalid email or password
+      </small>
+      <form class="form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <mat-form-field [appearance]="'outline'">
+          <mat-label>Email</mat-label>
+          <input
+            matInput
+            placeholder="Email"
+            type="email"
+            formControlName="email"
+          />
+        </mat-form-field>
+        <mat-form-field [appearance]="'outline'">
+          <mat-label>Password</mat-label>
+          <input matInput placeholder="Password" formControlName="password" />
+        </mat-form-field>
+        <button class="btn-submit" mat-raised-button color="primary">
+          Login
+        </button>
+      </form>
+    </div>
+  </mat-card>
+</div>

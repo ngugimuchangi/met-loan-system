@@ -1,0 +1,33 @@
+.wrapper {
+  min-height: 100vh;
+  padding: 1rem;
+  display: grid;
+  place-content: center;
+}
+
+.logo {
+  display: grid;
+  place-content: center;
+}
+
+.form-content-wrapper {
+  padding: 1rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  gap: 0.5rem;
+}
+
+.error {
+  display: block;
+}
+
+.form {
+  min-width: 350px;
+  display: flex;
+  flex-direction: column;
+}
+
+.btn-submit {
+  padding-block: 1.5rem !important;
+}
