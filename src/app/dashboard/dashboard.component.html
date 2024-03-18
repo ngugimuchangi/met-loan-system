@@ -1,0 +1,62 @@
+<header class="dashboard-header mat-elevation-z1">
+  <button mat-icon-button (click)="sidenav.toggle()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <h1 class="custom-logo">Loan Origination System</h1>
+</header>
+
+<!-- Dashboard content -->
+<div class="dashboard-body">
+  <mat-sidenav-container class="mat-side-nav-container">
+    <!-- Sidebar -->
+    <mat-sidenav class="mat-side-nav" mode="side" #sidenav="matSidenav">
+      <nav>
+        <ul class="nav-list">
+          <!-- Dashboard -->
+          <li>
+            <a
+              class="nav-link"
+              routerLink="/dashboard"
+              routerLinkActive="active"
+            >
+              <mat-icon class="nav-icon">dashboard</mat-icon>
+              <span>Dashboard</span>
+            </a>
+          </li>
+
+          <!-- Loan application -->
+          <li>
+            <a
+              class="nav-link"
+              routerLink="/apply-loan"
+              routerLinkActive="active"
+            >
+              <mat-icon class="nav-icon">file_copy</mat-icon>
+              <span>Apply for Loan</span>
+            </a>
+          </li>
+
+          <!-- Profile -->
+          <li>
+            <a class="nav-link" routerLink="/profile" routerLinkActive="active">
+              <mat-icon class="nav-icon">person</mat-icon>
+              <span>Profile</span>
+            </a>
+          </li>
+          <!-- Logout -->
+          <li>
+            <a class="nav-link" routerLink="" (click)="logout()">
+              <mat-icon>exit_to_app</mat-icon>
+              <span>Logout</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </mat-sidenav>
+
+    <!-- Page content -->
+    <mat-sidenav-content class="dashboard-content">
+      <router-outlet class="router-outlet" />
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
