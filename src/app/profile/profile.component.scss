@@ -1,0 +1,42 @@
+.card {
+  padding: 0;
+  max-width: 800px;
+}
+
+.profile-form {
+  width: 100%;
+  display: grid;
+  grid-auto-flow: row;
+  gap: 2rem;
+}
+
+.form-group {
+  padding: 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.form-group-title {
+  padding: 0.5rem 1.5rem;
+  grid-column: span 2;
+  border-bottom: 1px solid var(--cadet-gray);
+}
+
+.form-control-icon:has(mat-datepicker-toggle) {
+  padding-left: 0;
+  padding-right: 0.75rem;
+  grid-template-columns: repeat(2, auto);
+}
+
+mat-datepicker-toggle {
+  color: var(--cadet-gray);
+}
+.card-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn {
+  padding: 1rem 2rem !important;
+}

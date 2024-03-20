@@ -6,35 +6,18 @@
 
 .dashboard-header {
   padding: 0.5rem 1rem;
-  color: var(--primary);
-  background: var(--background);
+  background: white;
   display: flex;
-  align-items: baseline;
+  align-items: last baseline;
   gap: 1rem;
   position: sticky;
-  z-index: 9999;
+  z-index: 2;
 }
 
-.custom-logo {
-  font-family: Arial, Helvetica, sans-serif;
+.menu-toggle {
+  position: relative;
+  top: 0.3rem;
 }
-
-.user-profile {
-  margin-left: auto;
-  display: grid;
-  grid-template-columns: repeat(2, auto);
-  gap: 0.5rem;
-  align-items: center;
-}
-
-.profile-icon {
-  scale: 1.2;
-}
-
-.welcome-text {
-  font-size: 1rem;
-}
-
 .dashboard-body {
   position: relative;
 }
@@ -45,48 +28,48 @@
 }
 
 .mat-side-nav {
-  padding: 3rem 1rem;
+  padding-block: 2rem;
+  background: var(--sea-salt);
 }
 
 .nav-list {
   list-style: none;
-  display: flex;
-  flex-direction: column;
+  display: grid;
   gap: 1rem;
 }
 
 .nav-link {
   padding: 0.5rem 1rem;
-  border-radius: 0.25rem;
-  color: #a9afbb;
-  text-decoration: none;
+  padding-right: 5rem;
   display: flex;
-  gap: 1rem;
-  font-size: 18px;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--text-color);
+  font-family: "Poppins", sans-serif;
   font-weight: 300;
+  text-decoration: none;
+
+  .nav-icon {
+    color: var(--cadet-gray);
+  }
 
   &:hover {
-    color: white;
-    background: #c2c9d6;
+    background: var(--platinum);
   }
 
   &.active {
-    color: white;
-    background: var(--accent);
+    background: var(--cornflower-blue);
+    color: var(--white);
+
+    .nav-icon {
+      color: var(--white);
+    }
   }
 }
 
-.nav-icon {
-  font-size: 24px;
-}
-
 .dashboard-content {
-  display: block;
-  max-width: 1200px;
   padding: 3rem 1rem;
   margin: auto;
-}
-
-.router-outlet {
   display: block;
+  max-width: 1200px;
 }

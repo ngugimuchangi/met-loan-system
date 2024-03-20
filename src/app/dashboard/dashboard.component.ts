@@ -4,7 +4,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 
-import { User } from '../auth/user';
+import { User } from '../model/user';
 import { AuthService } from '../auth/auth.service';
 
 @Component({

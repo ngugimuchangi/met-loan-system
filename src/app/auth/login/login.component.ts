@@ -5,7 +5,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 
-import { FormControls } from '../../types/form-controls.types';
+import { FormControls } from '../../shared/types/form-controls.types';
 import { AuthService } from '../auth.service';
 import { NgIf } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
@@ -40,7 +40,6 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-
     const { email = '', password = '' } = this.loginForm.value;
     try {
       this.authService.login(email, password);

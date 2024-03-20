@@ -4,9 +4,9 @@
   place-content: center stretch;
   padding: 1rem;
   background: url(../../../assets/images/login-hero.jpg) no-repeat center
-    center/cover;
+    center/cover var(--sea-salt);
   @media (min-width: 768px) {
-    background: none;
+    background-image: none;
     place-content: center;
   }
 }
@@ -14,13 +14,13 @@
 .wrapper {
   border-radius: 1rem;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr;
   gap: 0.5rem;
   overflow: hidden;
   background: white;
 
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr;
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -38,20 +38,8 @@
   }
 }
 
-.form-header {
-  margin-bottom: 3rem;
+.login-header {
   text-align: center;
-  color: var(--accent);
-  font-size: 2rem;
-  font-weight: 600;
-}
-
-.form-control-icon {
-  padding-left: 1rem;
-  color: gray;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  place-items: center;
 }
 
 .error {

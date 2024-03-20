@@ -1,0 +1,36 @@
+.card {
+  overflow: auto;
+  display: grid;
+}
+
+.table {
+  width: 100%;
+  min-width: 800px;
+}
+
+.filter {
+  display: inline-block;
+  margin-left: auto;
+}
+
+mat-option,
+mat-paginator,
+mat-header-cell,
+mat-cell {
+  font-family: "Poppins", sans-serif !important;
+  font-size: 14px;
+}
+
+mat-header-cell,
+mat-cell {
+  padding: 1rem;
+  display: grid;
+  place-content: start;
+}
+mat-header-cell {
+  font-weight: 600;
+}
+
+button:hover .icon {
+  color: var(--cornflower-blue) !important;
+}

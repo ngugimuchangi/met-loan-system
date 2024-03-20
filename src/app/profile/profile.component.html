@@ -1,0 +1,131 @@
+<h1>Account</h1>
+<div>
+  <form class="profile-form" [formGroup]="userProfileForm" (ngSubmit)="save()">
+    <!-- Personal details -->
+    <div class="card">
+      <h2 class="header-two form-group-title">Your profile</h2>
+      <div class="form-group">
+        <mat-form-field appearance="outline">
+          <div class="form-control-icon" matPrefix>
+            <mat-icon>account_circle</mat-icon>
+            <span>|</span>
+          </div>
+          <mat-label>First Name</mat-label>
+          <input type="text" matInput formControlName="firstName" />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <div class="form-control-icon" matPrefix>
+            <mat-icon>account_circle</mat-icon>
+            <span>|</span>
+          </div>
+          <mat-label>Last name</mat-label>
+          <input type="text" matInput formControlName="lastName" />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <div class="form-control-icon" matPrefix>
+            <mat-datepicker-toggle [for]="dob">!</mat-datepicker-toggle>
+            <span>|</span>
+          </div>
+          <mat-label>Date Of Birth</mat-label>
+          <input matInput [matDatepicker]="dob" formControlName="dob" />
+          <mat-datepicker #dob></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <div class="form-control-icon" matPrefix>
+            <mat-icon>wc</mat-icon>
+            <span>|</span>
+          </div>
+          <mat-label>Gender</mat-label>
+          <mat-select formControlName="gender">
+            <mat-option *ngFor="let gender of genderOptions" [value]="gender">
+              {{ gender | titlecase }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <div class="form-control-icon" matPrefix>
+            <mat-icon>call</mat-icon>
+            <span>|</span>
+          </div>
+          <mat-label>Phone number</mat-label>
+          <input type="tel" matInput formControlName="phoneNumber" />
+        </mat-form-field>
+      </div>
+    </div>
+
+    <!-- Login details -->
+    <div class="card">
+      <h2 class="header-two form-group-title">Login details</h2>
+      <div class="form-group">
+        <mat-form-field appearance="outline">
+          <div class="form-control-icon" matPrefix>
+            <mat-icon>email</mat-icon>
+            <span>|</span>
+          </div>
+          <mat-label>Email</mat-label>
+          <input type="email" matInput formControlName="email" />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <div class="form-control-icon" matPrefix>
+            <mat-icon (click)="passwordHidden = !passwordHidden">{{
+              passwordHidden ? "lock" : "lock_open"
+            }}</mat-icon>
+            <span>|</span>
+          </div>
+          <mat-label>Password</mat-label>
+          <input
+            [type]="passwordHidden ? 'password' : 'text'"
+            matInput
+            formControlName="password"
+          />
+        </mat-form-field>
+      </div>
+    </div>
+
+    <!-- Address details -->
+    <div class="card">
+      <h2 class="header-two form-group-title">Address details</h2>
+      <div class="form-group">
+        <mat-form-field class="address" appearance="outline">
+          <div class="form-control-icon" matPrefix>
+            <mat-icon>location_on</mat-icon>
+            <span>|</span>
+          </div>
+          <mat-label>Address Line 1</mat-label>
+          <input type="text" matInput formControlName="addressLine1" />
+        </mat-form-field>
+
+        <mat-form-field class="address" appearance="outline">
+          <div class="form-control-icon" matPrefix>
+            <mat-icon>location_on</mat-icon>
+            <span>|</span>
+          </div>
+          <mat-label>Address Line 2</mat-label>
+          <input type="text" matInput formControlName="addressLine2" />
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="card-actions">
+      <button
+        type="button"
+        class="btn btn-cancel"
+        mat-raised-button
+        color="primary"
+        (click)="reset()"
+        [disabled]="!userProfileForm.valid"
+      >
+        Reset
+      </button>
+      <button
+        class="btn btn-primary"
+        mat-raised-button
+        color="primary"
+        [disabled]="!userProfileForm.valid"
+      >
+        Save
+      </button>
+    </div>
+  </form>
+</div>
