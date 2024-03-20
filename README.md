@@ -1,27 +1,46 @@
 # MetLoanSystem
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.10.
+## Description
 
-## Development server
+This is a simple frontend loan system application that provides the basic of loan origination workflow which includes:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- User login
+- Loan application
+- Loan approval, rejection, and disbursement
+- Viewing loan applications
+- Feature access control based on user role
 
-## Code scaffolding
+## Getting Started
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+To get a local copy up and running follow these simple steps.
 
-## Build
+### Prerequisites
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+You need to have node.js installed on your local machine.
 
-## Running unit tests
+### Installation
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+1. Clone the repo
 
-## Running end-to-end tests
+   ```sh
+   git clone
+   ```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+2. Install NPM packages
 
-## Further help
+   ```sh
+   npm install
+   ```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+3. Start the application
+
+   ```sh
+   npm start
+   ```
+
+4. Open your browser and navigate to `http://localhost:4200/`
+
+## Test user credentials
+
+- Email: `johndoe@gmail.com`
+- Password: `password`
