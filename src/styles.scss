@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;1,400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap");
 
 *,
 *::after,
@@ -7,16 +7,18 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-size: 100%;
-  font-family: inherit;
 }
 
 :root {
   --text: #050315;
-  --background: #fbfbfe;
-  --primary: #2f27ce;
-  --secondary: #dedcff;
-  --accent: #433bff;
+  --cornflower-blue: #6e8aed;
+  --chrysler-blue: #2f27ce;
+  --sea-salt: rgba(247, 247, 247, 1);
+  --cadet-gray: rgba(161, 172, 180, 1);
+  --dim-gray: rgba(97, 105, 106, 1);
+  --platinum: rgba(227, 228, 229, 1);
+  --white: rgba(255, 255, 255, 1);
+  --red: #e2673e;
 }
 
 html,
@@ -27,14 +29,79 @@ body {
 body {
   margin: 0;
   font-family: "Poppins", sans-serif;
-  background-color: var(--background);
+  background-color: var(--white);
   color: var(--text);
-  font-size: 16px;
-  font-family: "Poppins", sans-serif;
+  font-size: 14px;
 }
 
+/* Global classes */
+
+.poppins {
+  font-family: "Poppins", sans-serif !important;
+}
+
+// Headers
+.header-one,
+.header-two {
+  font-family: "Poppins", sans-serif !important;
+  font-size: 1.3rem !important;
+  font-weight: 400;
+  margin-bottom: 2rem;
+}
+
+.header-two {
+  font-size: 1rem !important;
+}
+
+// Forms
+mat-label,
+mat-select,
+mat-option,
+mat-form-field,
+mat-error,
+[matinput] {
+  font-family: "Poppins", sans-serif !important;
+  font-size: 14px !important;
+}
+
+.form-control-icon {
+  padding-left: 1rem;
+  color: var(--cadet-gray);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  place-items: center;
+}
+
+// Error messages
 .error {
   color: red;
   font-size: 12px;
   text-align: center;
+}
+
+// Buttons
+.btn {
+  font-family: "Poppins", sans-serif !important;
+}
+
+.btn-primary:disabled {
+  background-color: lighten($color: #433bff, $amount: 10) !important;
+  color: white !important;
+}
+
+.btn-cancel {
+  color: white !important;
+  background: #e3313b !important;
+}
+
+// Icons
+.icon {
+  color: var(--cadet-gray);
+}
+
+// Card styles
+.card {
+  border: 1px solid var(--cadet-gray);
+  border-radius: 0.5rem;
+  padding: 1.5rem;
 }
