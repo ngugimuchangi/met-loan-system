@@ -38,7 +38,7 @@ You need to have node.js installed on your local machine.
    npm start
    ```
 
-4. Open your browser and navigate to `http://localhost:4200/`
+4. Open your browser and navigate to `http://localhost:4200`
 
 ## Test user credentials
 
