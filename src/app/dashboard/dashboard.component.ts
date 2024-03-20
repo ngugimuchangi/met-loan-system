@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { NgIf } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -6,7 +7,7 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 
 import { User } from '../model/user';
 import { AuthService } from '../auth/auth.service';
-import { NgIf } from '@angular/common';
+import { Subject, fromEvent, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-dashboard',
@@ -21,21 +22,21 @@ import { NgIf } from '@angular/common';
 export class DashboardComponent implements OnInit, OnDestroy {
   user!: User;
   screenWidth: number = window.innerWidth;
-  screenWidthListener: any;
+  private destroy$ = new Subject<void>();
 
   constructor(private authService: AuthService) {
   }
 
   ngOnInit(): void {
     this.user = this.authService.currentUser as User;
-    this.screenWidthListener = window.onresize = () => {
+    fromEvent(window, 'resize').pipe(takeUntil(this.destroy$)).subscribe(() => {
       this.screenWidth = window.innerWidth;
-    };
+    });
   }
 
   ngOnDestroy(): void {
-    window.removeEventListener('resize', this.screenWidthListener);
-    this.screenWidthListener = null;
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 
   get isAdmin() {
