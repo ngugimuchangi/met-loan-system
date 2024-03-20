@@ -42,5 +42,12 @@ You need to have node.js installed on your local machine.
 
 ## Test user credentials
 
+### User
+
 - Email: `johndoe@gmail.com`
+- Password: `password`
+
+### Admin
+
+- Email: `janedoe@gmail.com`
 - Password: `password`
