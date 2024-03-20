@@ -115,6 +115,7 @@ export class LoanApplicationComponent implements OnInit, OnDestroy {
     setTimeout(() => {
       this.loanService.createLoan(loanDetails);
       swal.close();
+      this.loanApplicationForm.reset() // Reset makes the form pristine
       this.router.navigateByUrl('');
     }, 3000);
   }
