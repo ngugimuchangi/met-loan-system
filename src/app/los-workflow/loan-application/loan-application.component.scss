@@ -1,0 +1,44 @@
+.card {
+  padding: 0;
+}
+
+.loan-application-form {
+  width: 100%;
+  display: grid;
+  grid-auto-flow: row;
+  gap: 2rem;
+}
+
+.form-group {
+  padding: 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.form-group-title {
+  padding: 0.5rem 1.5rem;
+  grid-column: span 2;
+  border-bottom: 1px solid var(--cadet-gray);
+}
+
+.address {
+  @media (min-width: 768px) {
+    grid-column: span 2;
+  }
+}
+
+.card-actions {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.btn {
+  padding: 1rem 2rem !important;
+  font-size: 16px;
+}

@@ -1,0 +1,197 @@
+<h1>Apply for a Loan</h1>
+
+<form class="loan-application-form" [formGroup]="loanApplicationForm">
+  <!-- Personal Details -->
+  <div class="card">
+    <h2 class="header-two form-group-title">Personal Details</h2>
+    <div class="form-group" formGroupName="applicantDetails">
+      <mat-form-field appearance="outline">
+        <mat-label>Legal First name</mat-label>
+        <input type="text" matInput formControlName="firstName" />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Legal Last name</mat-label>
+        <input type="text" matInput formControlName="lastName" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Phone Number</mat-label>
+        <input type="tel" matInput formControlName="phoneNumber" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Date Of Birth</mat-label>
+        <input matInput [matDatepicker]="dob" formControlName="dob" />
+        <mat-datepicker-toggle matSuffix [for]="dob"></mat-datepicker-toggle>
+        <mat-datepicker #dob></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Gender</mat-label>
+        <mat-select formControlName="gender">
+          <mat-option *ngFor="let gender of genderOptions" [value]="gender">
+            {{ gender | titlecase }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input type="email" matInput formControlName="email" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Country / Region</mat-label>
+        <mat-select formControlName="country">
+          <mat-option
+            *ngFor="let country of locationOptions.countries"
+            [value]="country"
+          >
+            {{ country }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>State / Province</mat-label>
+        <mat-select formControlName="region">
+          <mat-option
+            *ngFor="let region of locationOptions.regions"
+            [value]="region"
+          >
+            {{ region }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>City</mat-label>
+        <mat-select formControlName="city">
+          <mat-option
+            *ngFor="let city of locationOptions.cities[selectedCountry]"
+            [value]="city"
+            >{{ city }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Zip / Postal Code</mat-label>
+        <input type="text" matInput formControlName="zipCode" />
+      </mat-form-field>
+
+      <mat-form-field class="address" appearance="outline">
+        <mat-label>Address Line 1</mat-label>
+        <input type="text" matInput formControlName="addressLine1" />
+      </mat-form-field>
+
+      <mat-form-field class="address" appearance="outline">
+        <mat-label>Address Line 2</mat-label>
+        <input type="text" matInput formControlName="addressLine2" />
+      </mat-form-field>
+    </div>
+  </div>
+
+  <!-- Employment Details -->
+  <div class="card">
+    <h2 class="header-two form-group-title">Employment Details</h2>
+    <div class="form-group" formGroupName="employmentDetails">
+      <mat-form-field appearance="outline">
+        <mat-label>Current Employment Status</mat-label>
+        <mat-select formControlName="currentEmploymentStatus">
+          <mat-option
+            *ngFor="let status of employmentStatusOptions"
+            [value]="status"
+          >
+            {{ status | titlecase }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Employer / Company Name</mat-label>
+        <input type="text" matInput formControlName="employerName" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Job Title</mat-label>
+        <input type="text" matInput formControlName="jobTitle" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Work Address</mat-label>
+        <input type="text" matInput formControlName="workAddress" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Monthly Salary</mat-label>
+        <input type="number" matInput formControlName="monthlyIncome" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Employment Duration (in years)</mat-label>
+        <input type="number" matInput formControlName="employmentDuration" />
+      </mat-form-field>
+    </div>
+  </div>
+
+  <!-- Loan Details -->
+  <div class="card">
+    <h2 class="header-two form-group-title">Loan Details</h2>
+    <div class="form-group" formGroupName="loanDetails">
+      <mat-form-field appearance="outline">
+        <mat-label>Amount</mat-label>
+        <input type="number" matInput formControlName="amount" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Due Date</mat-label>
+        <input
+          matInput
+          [matDatepicker]="dueDate"
+          [min]="minDate"
+          formControlName="dueDate"
+        />
+        <mat-datepicker-toggle
+          matSuffix
+          [for]="dueDate"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #dueDate></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Purpose</mat-label>
+        <mat-select formControlName="purpose">
+          <mat-option *ngFor="let purpose of loanPurposes" [value]="purpose">
+            {{ purpose }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Source of Down Payment</mat-label>
+        <mat-select formControlName="sourceOfDownPayment">
+          <mat-option
+            *ngFor="let downPayment of downPaymentOptions"
+            [value]="downPayment"
+          >
+            {{ downPayment | titlecase }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+</form>
+<div class="card-actions">
+  <button class="btn btn-cancel" mat-raised-button (click)="cancel()">
+    Cancel
+  </button>
+  <button
+    class="btn btn-primary"
+    mat-raised-button
+    color="primary"
+    [disabled]="!loanApplicationForm.valid"
+    (click)="submitLoanApplication()"
+  >
+    Submit
+  </button>
+</div>
