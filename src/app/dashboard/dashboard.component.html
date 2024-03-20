@@ -9,7 +9,12 @@
 <div class="dashboard-body">
   <mat-sidenav-container class="mat-side-nav-container">
     <!-- Sidebar -->
-    <mat-sidenav class="mat-side-nav" mode="side" #sidenav="matSidenav" opened>
+    <mat-sidenav
+      class="mat-side-nav"
+      [mode]="screenWidth > 768 ? 'side' : 'over'"
+      [opened]="screenWidth > 768"
+      #sidenav="matSidenav"
+    >
       <nav>
         <ul class="nav-list">
           <!-- Dashboard -->
@@ -20,13 +25,15 @@
               routerLinkActive="active"
               [routerLinkActiveOptions]="{ exact: true }"
             >
-              <mat-icon class="nav-icon">dashboard</mat-icon>
-              <span>Dashboard</span>
+              <mat-icon class="nav-icon">{{
+                isAdmin ? "file_copy" : "dashboard"
+              }}</mat-icon>
+              <span>{{ isAdmin ? "Loan Management" : "Dashboard" }}</span>
             </a>
           </li>
 
           <!-- Loan application -->
-          <li>
+          <li *ngIf="!isAdmin">
             <a
               class="nav-link"
               routerLink="/apply-loan"
