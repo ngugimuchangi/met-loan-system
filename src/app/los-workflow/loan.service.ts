@@ -46,4 +46,13 @@ export class LoanService {
     Object.assign(loan, update);
   }
 
+  approveLoan(loan: Loan) {
+    loan.loanDetails.status = 'approved';
+    loan.loanDetails.disbursementDate = new Date();
+  }
+
+  rejectLoan(loan: Loan) {
+    loan.loanDetails.status = 'rejected';
+  }
+
 }
