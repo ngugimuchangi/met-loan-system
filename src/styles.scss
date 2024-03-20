@@ -113,3 +113,12 @@ mat-error,
   border-radius: 1rem;
   overflow: hidden;
 }
+
+.dialog,
+.dialog * {
+  scrollbar-width: none;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
