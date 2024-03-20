@@ -1,6 +1,9 @@
 .card {
-  overflow: auto;
   display: grid;
+}
+
+.table-wrapper {
+  overflow: auto;
 }
 
 .table {
@@ -27,10 +30,15 @@ mat-cell {
   display: grid;
   place-content: start;
 }
+
+mat-cell {
+  place-content: center start;
+}
+
 mat-header-cell {
   font-weight: 600;
 }
 
-button:hover .icon {
+:is(button:hover, button:focus) .icon {
   color: var(--cornflower-blue) !important;
 }
