@@ -10,10 +10,15 @@
 }
 
 .form-group {
+  --min-col-width: 300px;
   padding: 1.5rem;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(var(--min-col-width), 1fr));
   gap: 1.5rem;
+
+  @media (min-width: 768px) {
+    --min-col-width: 400px;
+  }
 }
 
 .form-group-title {
@@ -31,6 +36,7 @@
 mat-datepicker-toggle {
   color: var(--cadet-gray);
 }
+
 .card-actions {
   display: flex;
   gap: 1rem;
