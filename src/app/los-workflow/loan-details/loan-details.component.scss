@@ -1,0 +1,41 @@
+.wrapper {
+  padding: 2rem;
+  font-family: "Poppins", sans-serif;
+  display: grid;
+  gap: 2rem;
+  max-width: 800px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.loan-section-title {
+  border-bottom: 1px solid var(--cadet-gray);
+}
+
+.loan-section {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem 2rem;
+}
+
+.loan-section-item-title {
+  font-weight: 500;
+}
+
+.btn {
+  padding: 1rem 1.5rem !important;
+  font-size: 16px;
+}
+
+.card-action {
+  display: flex;
+  gap: 1rem;
+}
+
+:is(button:hover, button:focus) .icon {
+  color: var(--cornflower-blue) !important;
+}

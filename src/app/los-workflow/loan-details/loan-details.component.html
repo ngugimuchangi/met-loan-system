@@ -1,1 +1,211 @@
-<p>loan-details works!</p>
+<div class="wrapper">
+  <div class="header">
+    <h1 class="header-one">
+      Loan Details <br />
+      {{ loan.id }}
+    </h1>
+    <button mat-icon-button (click)="close()">
+      <mat-icon class="icon">close</mat-icon>
+    </button>
+  </div>
+
+  <!-- Persona Details -->
+  <div class="inner-card">
+    <h2 class="header-two loan-section-title">Personal details</h2>
+    <div class="loan-section">
+      <div class="loan-section-item">
+        <span class="loan-section-item-title">First name:</span>
+        <span class="loan-section-item-value">
+          {{ loan.applicantDetails.firstName }}
+        </span>
+      </div>
+      <div class="loan-section-item">
+        <span class="loan-section-item-title">Last name:</span>
+        <span class="loan-section-item-value">
+          {{ loan.applicantDetails.lastName }}
+        </span>
+      </div>
+      <div class="loan-section-item">
+        <span class="loan-section-item-title">Phone number:</span>
+        <span class="loan-section-item-value">
+          {{ loan.applicantDetails.phoneNumber }}
+        </span>
+      </div>
+      <div class="loan-section-item">
+        <span class="loan-section-item-title">DOB: </span>
+        <span class="loan-section-item-value">
+          {{ loan.applicantDetails.dob | date : "mediumDate" }}
+        </span>
+      </div>
+      <div class="loan-section-item">
+        <span class="loan-section-item-title">Gender: </span>
+        <span class="loan-section-item-value">
+          {{ loan.applicantDetails.gender | titlecase }}
+        </span>
+      </div>
+
+      <div class="loan-section-item">
+        <span class="loan-section-item-title">Country: </span>
+        <span class="loan-section-item-value">
+          {{ loan.applicantDetails.country }}
+        </span>
+      </div>
+
+      <div class="loan-section-item">
+        <span class="loan-section-item-title">State: </span>
+        <span class="loan-section-item-value">
+          {{ loan.applicantDetails.region }}
+        </span>
+      </div>
+
+      <div class="loan-section-item">
+        <span class="loan-section-item-title">City: </span>
+        <span class="loan-section-item-value">
+          {{ loan.applicantDetails.city }}
+        </span>
+      </div>
+
+      <div class="loan-section-item">
+        <span class="loan-section-item-title">Zip code: </span>
+        <span class="loan-section-item-value">
+          {{ loan.applicantDetails.zipCode }}
+        </span>
+      </div>
+
+      <div class="loan-section-item">
+        <span class="loan-section-item-title">Line 1: </span>
+        <span class="loan-section-item-value">
+          {{ loan.applicantDetails.addressLine1 }}
+        </span>
+      </div>
+
+      <div class="loan-section-item">
+        <span class="loan-section-item-title">Line 2: </span>
+        <span class="loan-section-item-value">
+          {{ loan.applicantDetails.addressLine1 }}
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Loan Details -->
+  <div class="inner-card">
+    <h2 class="header-two loan-section-title">Loan details</h2>
+    <div class="loan-section">
+      <div class="loan-section-item">
+        <span class="loan-section-item-title">Amount: </span>
+        <span class="loan-section-item-value">
+          {{ loan.loanDetails.amount | currency : "USD" : "symbol" }}
+        </span>
+      </div>
+      <div class="loan-section-item">
+        <span class="loan-section-item-title">Payment term: </span>
+        <span class="loan-section-item-value">
+          {{ loan.loanDetails.loanTerm }} months
+        </span>
+      </div>
+      <div class="loan-section-item">
+        <span class="loan-section-item-title">Down payment: </span>
+        <span class="loan-section-item-value">
+          {{ loan.loanDetails.sourceOfDownPayment }}
+        </span>
+      </div>
+      <div class="loan-section-item">
+        <span class="loan-section-item-title">Purpose: </span>
+        <span class="loan-section-item-value">
+          {{ loan.loanDetails.purpose }}
+        </span>
+      </div>
+
+      <div class="loan-section-item">
+        <span class="loan-section-item-title">Status: </span>
+        <span class="loan-section-item-value">
+          {{ loan.loanDetails.status }}
+        </span>
+      </div>
+      <div class="loan-section-item">
+        <span class="loan-section-item-title">Applied on:</span>
+        <span class="loan-section-item-value">
+          {{ loan.loanDetails.applicationDate | date : "mediumDate" }}
+        </span>
+      </div>
+      <div class="loan-section-item">
+        <span class="loan-section-item-title">Disbursed on: </span>
+        <span class="loan-section-item-value">
+          {{ loan.loanDetails.disbursementDate | date : "mediumDate" }}
+        </span>
+      </div>
+      <div class="loan-section-item">
+        <span class="loan-section-item-title">Due on: </span>
+        <span class="loan-section-item-value">
+          {{ loan.loanDetails.dueDate | date : "mediumDate" }}
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Employment Details -->
+  <div class="inner-card">
+    <h2 class="header-two loan-section-title">Employment details</h2>
+    <div class="loan-section">
+      <div class="loan-section-item">
+        <span class="loan-section-item-title">Employment status: </span>
+        <span class="loan-section-item-value">
+          {{ loan.employmentDetails.currentEmploymentStatus }}
+        </span>
+      </div>
+      <div class="loan-section-item">
+        <span class="loan-section-item-title">Employer:</span>
+        <span class="loan-section-item-value">
+          {{ loan.employmentDetails.employerName }}
+        </span>
+      </div>
+      <div class="loan-section-item">
+        <span class="loan-section-item-title">Job title: </span>
+        <span class="loan-section-item-value">
+          {{ loan.employmentDetails.jobTitle }}
+        </span>
+      </div>
+      <div class="loan-section-item">
+        <span class="loan-section-item-title">Work address: </span>
+        <span class="loan-section-item-value">
+          {{ loan.employmentDetails.workAddress }}
+        </span>
+      </div>
+      <div class="loan-section-item">
+        <span class="loan-section-item-title">Monthly income: </span>
+        <span class="loan-section-item-value">
+          {{
+            loan.employmentDetails.monthlyIncome | currency : "USD" : "symbol"
+          }}
+        </span>
+      </div>
+      <div class="loan-section-item">
+        <span class="loan-section-item-title">Employment duration</span>
+        <span class="loan-section-item-value">
+          {{ loan.loanDetails.applicationDate | date : "mediumDate" }}
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="canChangeStatus()" class="inner-card card-action">
+    <button
+      class="btn btn-cancel"
+      type="button"
+      mat-raised-button
+      (click)="rejectLoan()"
+    >
+      Reject
+    </button>
+    <button
+      class="btn btn-primary"
+      type="button"
+      mat-raised-button
+      color="primary"
+      (click)="approveLoan()"
+    >
+      Approve
+    </button>
+  </div>
+</div>
