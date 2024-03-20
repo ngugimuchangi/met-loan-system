@@ -53,7 +53,7 @@ export class Loan {
 
 
     constructor(loanDetails: LoanDetails) {
-        this.id = loanDetails.id || 'LN' + uuid();
+        this.id = loanDetails.id || 'LN-' + uuid();
         this.applicantDetails = loanDetails.applicantDetails;
         this.employmentDetails = loanDetails.employmentDetails;
         this.loanDetails = loanDetails.loanDetails;
