@@ -11,8 +11,8 @@
     <!-- Sidebar -->
     <mat-sidenav
       class="mat-side-nav"
-      [mode]="screenWidth > 768 ? 'side' : 'over'"
-      [opened]="screenWidth > 768"
+      [mode]="isMobile ? 'over' : 'side'"
+      [opened]="!isMobile"
       #sidenav="matSidenav"
     >
       <nav>
@@ -24,6 +24,7 @@
               routerLink=""
               routerLinkActive="active"
               [routerLinkActiveOptions]="{ exact: true }"
+              (click)="toggleSidenav()"
             >
               <mat-icon class="nav-icon">{{
                 isAdmin ? "file_copy" : "dashboard"
@@ -38,6 +39,7 @@
               class="nav-link"
               routerLink="/apply-loan"
               routerLinkActive="active"
+              (click)="toggleSidenav()"
             >
               <mat-icon class="nav-icon">edit_document</mat-icon>
               <span>Apply for Loan</span>
@@ -46,7 +48,12 @@
 
           <!-- Profile -->
           <li>
-            <a class="nav-link" routerLink="/profile" routerLinkActive="active">
+            <a
+              class="nav-link"
+              routerLink="/profile"
+              routerLinkActive="active"
+              (click)="toggleSidenav()"
+            >
               <mat-icon class="nav-icon">person</mat-icon>
               <span>Profile</span>
             </a>

@@ -1,8 +1,8 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { NgIf } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatSidenav, MatSidenavModule } from '@angular/material/sidenav';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 
 import { User } from '../model/user';
@@ -24,6 +24,8 @@ export class DashboardComponent implements OnInit, OnDestroy {
   screenWidth: number = window.innerWidth;
   private destroy$ = new Subject<void>();
 
+  @ViewChild('sidenav') sidenav!: MatSidenav;
+
   constructor(private authService: AuthService) {
   }
 
@@ -41,6 +43,14 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
   get isAdmin() {
     return this.authService.isAdmin();
+  }
+
+  get isMobile() {
+    return this.screenWidth < 768;
+  }
+
+  toggleSidenav(): void {
+    if (this.isMobile) this.sidenav.toggle();
   }
 
   logout(): void {
